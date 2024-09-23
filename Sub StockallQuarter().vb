@@ -66,6 +66,12 @@ Sub StockallQuarter()
                     Price_change = 0 ' Handle potential division by zero
                 End If
                 
+                  If (Price_change <= 0) Then
+                    Q.Range("M" & Summary_Table_Row).Interior.ColorIndex = 9 ' Red
+                Else
+                    Q.Range("M" & Summary_Table_Row).Interior.ColorIndex = 10 ' Green
+                End If
+                
                 ' Output values in the summary table
                 Q.Range("O" & Summary_Table_Row).Value = open_qrt
                 Q.Range("P" & Summary_Table_Row).Value = close_qrt
